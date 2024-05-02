@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de senha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .conteudo {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff0000;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(253, 253, 253, 0.1);
+        }
+        .titulo-principal {
+            color: #333;
+        }
+        .titulo-secundario {
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ff0000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="conteudo">
+        <img src="unlock.svg" alt="cadeado fechado"> 
+        <h2 class="titulo-principal">Gerador de senhas</h2>
+        <h3 class="titulo-secundario">Gere instantaneamente uma senha aleatória e segura</h3>
+        <input type="text" id="senha" readonly>
+        <button onclick="gerarSenha()">Gerar Senha</button>
+    </div>
+
+    <script>
+        function gerarSenha() {
+            const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}|:<>?-=[];,./';
+            const comprimentoSenha = 12;
+            let senha = '';
+            for (let i = 0; i < comprimentoSenha; i++) {
+                const indice = Math.floor(Math.random() * caracteres.length);
+                senha += caracteres.charAt(indice);
+            }
+            document.getElementById('senha').value = senha;
+        }
+    </script>
+</body>
+</html>
